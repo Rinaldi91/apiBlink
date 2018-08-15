@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Country\CountryResource;
 use App\Model\Country;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class CountryController extends Controller
      */
     public function index()
     {
-        //
+        return Country::all();
     }
 
     /**
@@ -46,7 +47,7 @@ class CountryController extends Controller
      */
     public function show(Country $country)
     {
-        //
+        return new CountryResource($country);
     }
 
     /**
