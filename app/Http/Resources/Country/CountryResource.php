@@ -17,6 +17,10 @@ class CountryResource extends JsonResource
         return [
             'code' => $this->code,
             'name' => $this->name,
+
+            'href' =>[
+                'regions' => route('regions.index',$this->id)
+            ]
         ];
     }
 }

@@ -2,9 +2,9 @@
 
 namespace App\Http\Resources\Country;
 
-use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Resources\Json\Resource;
 
-class CountryCollection extends ResourceCollection
+class CountryCollection extends Resource
 {
     /**
      * Transform the resource collection into an array.
@@ -14,6 +14,17 @@ class CountryCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+
+            'code' => $this->code,
+            'href' =>[
+
+                'link' => route('countries.show',$this->id)
+
+            ]
+
+
+
+        ];
     }
 }
